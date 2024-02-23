@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <h1>Sign Up</h1>
+    <form action="/signup" method="POST">
+      <label for="email">Email</label>
+      <input name="email" placeholder="email" type="email" />
+      <label for="firstName">First Name</label>
+      <input name="firstName" placeholder="first name" type="text" />
+      <label for="lastName">Last Name</label>
+      <input name="lastName" placeholder="last name" type="text" />
+      <label for="username">Username</label>
+      <input name="username" placeholder="username" type="text" />
+      <label for="password">Password</label>
+      <input name="password" type="password" />
+      <label for="membershipStatus">Membership Status</label>
+      <select name="membershipStatus">
+        <option value="member">Member</option>
+        <option value="admin">Admin</option>
+        <label for="membershipPasscode">Membership Passcode</label>
+        <input name="membershipPasscode" placeholder="Passcode" type="text" />
+      </select>
+      <button>Sign Up</button>
+    </form>
+  </body>
+</html>

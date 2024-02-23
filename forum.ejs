@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Forum Page</title>
+  </head>
+  <body>
+    <h1>Forum</h1>
+    <a href="/">Home</a>
+    <% if (user) { %>
+    <p>Welcome, <%= user.username %>! (<a href="/log-out">Log out</a>)</p>
+    <form action="/forum" method="POST">
+      <textarea
+        name="content"
+        placeholder="Write something..."
+        required
+      ></textarea>
+      <button type="submit">Post</button>
+    </form>
+    <% } else { %>
+    <p>Please <a href="/login">log in</a> to view and post in the forum.</p>
+    <% } %>
+
+    <div id="posts">
+      <% posts.forEach(function(post) { %>
+      <div class="post">
+        <p><%= post.content %></p>
+        <% if (user) { %>
+        <p>Posted by: <%= post.author.username %></p>
+        <p>Date: <%= post.createdAt.toDateString() %></p>
+        <% } %> <% if (user && user.membershipStatus === "admin") { %>
+        <a href="/confirm-delete/<%= post._id %>">Delete Post</a>
+        <% } %>
+      </div>
+      <% }); %>
+    </div>
+  </body>
+</html>

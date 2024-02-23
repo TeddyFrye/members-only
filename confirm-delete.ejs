@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Confirm Delete</title>
+  </head>
+  <body>
+    <h1>Are you sure you want to delete this post?</h1>
+    <form action="/delete-post/<%= postId %>" method="POST">
+      <button type="submit">Confirm</button>
+    </form>
+    <a href="/forum">Cancel</a>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <% if (user) {%>
+    <h1>WELCOME BACK <%= user.username %></h1>
+    <h2>Membership Status: <%= user.membershipStatus %></h2>
+    <h2>First Name: <%= user.firstName %></h2>
+    <h2>Last Name: <%= user.lastName %></h2>
+    <h2>Email: <%= user.email %></h2>
+    <a href="/log-out ">LOG OUT</a>
+    <a href="/forum">Proceed to Forums</a>
+    <% } else { %>
+    <h1>Welcome to Members Only, please log in</h1>
+    <form action="/log-in" method="POST">
+      <label for="username">Username</label>
+      <input name="username" placeholder="username" type="text" />
+      <label for="password">Password</label>
+      <input name="password" type="password" />
+      <label for="membershipStatus">Membership Status</label>
+      <select name="membershipStatus">
+        <option value="member">Member</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button>Log In</button>
+    </form>
+    <h1>or sign up</h1>
+    <a href="/signup">SIGN UP</a>
+    <%}%>
+
+    <h1>Or Just Browse the Forum</h1>
+
+    <div id="posts">
+      <% posts.forEach(function(post) { %>
+      <div class="post">
+        <p><%= post.content %></p>
+      </div>
+      <% }); %>
+    </div>
+  </body>
+</html>
